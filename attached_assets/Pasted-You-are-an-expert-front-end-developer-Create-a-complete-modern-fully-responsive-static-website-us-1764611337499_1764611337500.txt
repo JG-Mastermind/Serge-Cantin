@@ -1,0 +1,59 @@
+You are an expert front-end developer. Create a complete, modern, fully responsive static website using only HTML5 and Tailwind CSS (via CDN, no build step needed) that will replace the current site at https://sergecantin.com but MUST keep exactly the same URLs for SEO and Google ranking.
+
+The site already exists and is indexed with these exact 6 page URLs (English version):
+1. https://sergecantin.com/sc_e.html → Company presentation (Serge Cantin page)
+2. https://sergecantin.com/real_e.html → Realisations / Portfolio page (contains client list and ~10 client projects with anchor links like #timberland, etc.)
+3. https://sergecantin.com/stand_e.html → Stands & exhibition page
+4. https://sergecantin.com/cw_e.html → Our workshop & manufacturing process (lots of images with text wrapping around them)
+5. https://sergecantin.com/contact_e.html → Contact page
+6. https://sergecantin.com/blog → NEW page (this one will be a WordPress blog later, so just create a clean placeholder page with the blog title, an iframe or a simple message saying the blog is powered by WordPress, and a grid layout ready for posts)
+Additional pages that already exist and must keep working:
+- https://sergecantin.com/eng.html → Will become the new homepage (create it as index.html or eng.html)
+- Individual project anchors on real_e.html (e.g., https://sergecantin.com/real_e.html#timberland) must still scroll smoothly to the correct section.
+REQUIREMENTS – BE STRICT ABOUT THESE:
+1. File & URL structure (CRUCIAL FOR SEO):
+   - Create one HTML file per page with exactly these filenames:
+     - eng.html (homepage)
+     - sc_e.html
+     - real_e.html
+     - stand_e.html
+     - cw_e.html
+     - contact_e.html
+     - blog/index.html (because https://sergecantin.com/blog must resolve to a folder for WordPress later)
+2. Navigation menu:
+   - Exact same menu on every page
+   - Desktop: horizontal menu
+   - Mobile & tablet: hamburger menu (fully functional with pure CSS/JS, no external libraries except Alpine.js if needed)
+   - Menu items must link to the exact URLs above (including .html extension where it exists)
+   - Highlight the current page in the menu
+   Favorite menu items in English:
+   - Home
+   - Serge Cantin
+   - Realisations
+   - Stands
+   - Our Workshop
+   - Contact
+   - Blog (new)
+3. Design & responsiveness:
+   - Modern, clean, professional, industrial manufacturing style for a custom metal store fixtures company
+   - Fully responsive (mobile-first)
+   - Use Tailwind CSS via CDN (latest v3+)
+   - Fast loading, semantic HTML5
+   - Smooth scroll for anchor links (#timberland, etc.)
+   - All images must use lazy loading and proper alt text
+4. Content:
+   - Use the following exact text and layout descriptions extracted from the provided PDF for each page (adapt layouts to modern responsive design while preserving structure; for images, fetch from the live site URLs if possible or use placeholders with descriptions from the PDF; include hero sections where noted in the PDF):
+     - eng.html (Homepage): "sergecantin is a manufacturer of custom metal store fixtures. Our 20,000 square foot plant is located in Montreal (Quebec) Canada. We have all the equipment and resources to produce anything from a single prototype to all the fixtures required to outfit a complete store. Furthermore, we have the ability to manufacture individual items as well as large volume runs. We supply metal products to general contractors, millwork and retailers. We also collaborate with designers and architects developing new designs based on our shop drawings and prototypes." Include a hero section with a few images (e.g., company logo, plant overview).
+     - sc_e.html: "I have been in the store fixture industry since 1985. In 1994 I opened my own company in order to meet my clients' needs with improved production, quality and lead times. Today I am still closely involved with all aspects of the contracts: Quotations, Production Drawings, Delivery Dates, Production Supervision, Quality Control, Assembly Supervision, Coordination of Shipments." Include images of manufacturing processes (e.g., welding, machining) with text wrapping.
+     - real_e.html: Start with "We have been involved in a variety of projects in Canada, USA, South America, Egypt, Singapore, Thailand and in the Middle East. We have established a successful relationship with designers, architects, millworkers, contractors and retailers from all over the world. create a nice hero sections wit a few images". Then include the full client list organized by region (Canada/Quebec & National, USA & International) as bullet points exactly as in the PDF (e.g., Aldo (Montreal-based footwear), Arc'teryx, etc., up to West Coast). Follow with "Examples of Recent Projects" section with anchors (e.g., #timberland) and project images/captions: Mr. Big & Tall : Loda Design 2007 (image of store interior), Fruits & Passions (image of store display), l'Officiel (images of beauty/product shelves), Pharmaprix (image of bar stools and displays), Timberland : Loda Design 2007 (image of store front), Tristan : IDX Design 2007 (image of shoe displays). Use grid or carousel for projects; ensure smooth scrolling to anchors.
+     - stand_e.html: "Store fixtures and typical accessories we have a design and build team ready for your customize trade show and Store. Here is the list parsed and grouped by category: Face-outs (Angled waterfall face-out, Straight face-out, Face-out with multiple stops (for handbags), Back-to-back straight face-out, Mixed back-to-back face-out (one straight, one waterfall), Short wall face-out); Hooks (Small hook, Circular hat hook); Shelf Brackets (Shelf bracket for glass shelves, Shelf bracket for wood shelves, Shelf bracket for wood shelves (adjustable angle)); Bars (Flat hanging bar, U-shaped hanging bar, Shelf U-bar with front lip); Wall Standards (Structural) (Heavy duty slotted wall standard (single), Heavy duty slotted wall standard (double), Concealed aluminum wall standard); Wall Systems & Attachments (Slatwall panel section, Grid panel section, Heavy duty slotting wall attachment, Regular slotting wall attachment); Floor Racks (2-way floor rack, 4-way floor rack, Double-sided gondola floor rack, Circular floor rack)." Use images of fixtures where described, laid out in a categorized grid.
+     - cw_e.html: "Mr. Serge Cantin the owner of gestion de projets serge cantin inc., is proud to present his shop. Our 20,000 square foot plant consists of six production departments: Cutting, Sheet metal & Bending, Machining & Dies, Welding, Polishing & Finishing, and Packaging & Shipping. Our strength resides in our 30 skilled employees working in a very flexible production line." Recreate layout with lots of images (e.g., departments, employees at work) with text wrapping around them.
+     - contact_e.html: "5665 Dessiant Ville St-Laurent (Quebec) Canada H4S 1M8 tel.: (514) 745 1991 fax: (514) 745 3113 toll free: (1 888) 737 2268 e-mail:info@sergecantin.com Serge Cantin, President tel.: (514) 745 1991 fax: (514) 745 3113 cell: (514) 927-7847 We built our company on commitment to our customers." Include a simple contact form placeholder if possible, or just the info in a clean layout.
+     - For the new /blog page: create a beautiful placeholder with header "Blog – Serge Cantin" and a message "Our blog is coming soon – powered by WordPress" + a nice grid ready for future articles.
+5. Technical details:
+   - Single hamburger menu implementation that works identically on all pages (you can duplicate the HTML or use a simple JS include if needed)
+   - No backend, pure static HTML + Tailwind + minimal vanilla JS/Alpine.js for the mobile menu
+   - Add proper meta tags (title, description) on each page matching current SEO (e.g., title "Serge Cantin - Custom Metal Store Fixtures" for homepage)
+   - Include a language switcher link to French version (just a simple button linking to the French equivalent pages, e.g., index.html to fr.html, sc_e.html to sc.html, etc.)
+Output: a complete zip-ready project with all HTML files in the correct structure, using only Tailwind CDN and minimal JS. Make sure everything works when opened locally and preserves 100% of the current Google-indexed URLs.
+Start by generating the full folder structure and all files.
