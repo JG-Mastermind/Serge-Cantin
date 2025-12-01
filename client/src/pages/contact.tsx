@@ -4,7 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import {
   MapPin,
   Phone,
@@ -12,9 +19,59 @@ import {
   Smartphone,
   Clock,
   User,
+  CheckCircle,
+  Loader2,
 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 export default function Contact() {
+  const { toast } = useToast();
+  const [submitted, setSubmitted] = useState(false);
+
+  const form = useForm<InsertContactInquiry>({
+    resolver: zodResolver(insertContactInquirySchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: "",
+    },
+  });
+
+  const submitMutation = useMutation({
+    mutationFn: async (data: InsertContactInquiry) => {
+      const response = await apiRequest("POST", "/api/contact", data);
+      return response.json();
+    },
+    onSuccess: (data) => {
+      setSubmitted(true);
+      toast({
+        title: "Message Sent!",
+        description: data.message,
+      });
+      form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const onSubmit = (data: InsertContactInquiry) => {
+    submitMutation.mutate(data);
+  };
+
   return (
     <Layout
       title="Contact Us - Serge Cantin Custom Metal Store Fixtures"
@@ -168,73 +225,160 @@ export default function Contact() {
                   <CardTitle>Send Us a Message</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="firstName">First Name</Label>
-                        <Input
-                          id="firstName"
-                          placeholder="John"
-                          data-testid="input-first-name"
-                        />
+                  {submitted ? (
+                    <div className="text-center py-8" data-testid="success-message">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                        <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400" />
                       </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="lastName">Last Name</Label>
-                        <Input
-                          id="lastName"
-                          placeholder="Doe"
-                          data-testid="input-last-name"
+                      <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
+                      <p className="text-muted-foreground mb-6">
+                        Thank you for reaching out. We'll get back to you within 1-2 business days.
+                      </p>
+                      <Button
+                        variant="outline"
+                        onClick={() => setSubmitted(false)}
+                        data-testid="button-send-another"
+                      >
+                        Send Another Message
+                      </Button>
+                    </div>
+                  ) : (
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          <FormField
+                            control={form.control}
+                            name="firstName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>First Name</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    placeholder="John"
+                                    data-testid="input-first-name"
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="lastName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Last Name</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    placeholder="Doe"
+                                    data-testid="input-last-name"
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="email"
+                                  placeholder="john@example.com"
+                                  data-testid="input-email"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
-                      </div>
-                    </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        data-testid="input-email"
-                      />
-                    </div>
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Phone (Optional)</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="tel"
+                                  placeholder="(555) 555-5555"
+                                  data-testid="input-phone"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone (Optional)</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="(555) 555-5555"
-                        data-testid="input-phone"
-                      />
-                    </div>
+                        <FormField
+                          control={form.control}
+                          name="company"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Company (Optional)</FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder="Your Company"
+                                  data-testid="input-company"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                    <div className="space-y-2">
-                      <Label htmlFor="company">Company (Optional)</Label>
-                      <Input
-                        id="company"
-                        placeholder="Your Company"
-                        data-testid="input-company"
-                      />
-                    </div>
+                        <FormField
+                          control={form.control}
+                          name="message"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Message</FormLabel>
+                              <FormControl>
+                                <Textarea
+                                  placeholder="Tell us about your project requirements..."
+                                  className="min-h-[150px] resize-none"
+                                  data-testid="input-message"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell us about your project requirements..."
-                        className="min-h-[150px] resize-none"
-                        data-testid="input-message"
-                      />
-                    </div>
+                        <Button
+                          type="submit"
+                          className="w-full"
+                          disabled={submitMutation.isPending}
+                          data-testid="button-submit"
+                        >
+                          {submitMutation.isPending ? (
+                            <>
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                              Sending...
+                            </>
+                          ) : (
+                            "Send Message"
+                          )}
+                        </Button>
 
-                    <Button type="submit" className="w-full" data-testid="button-submit">
-                      Send Message
-                    </Button>
-
-                    <p className="text-xs text-muted-foreground text-center">
-                      We'll get back to you within 1-2 business days.
-                    </p>
-                  </form>
+                        <p className="text-xs text-muted-foreground text-center">
+                          We'll get back to you within 1-2 business days.
+                        </p>
+                      </form>
+                    </Form>
+                  )}
                 </CardContent>
               </Card>
             </div>
