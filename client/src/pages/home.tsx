@@ -15,7 +15,7 @@ import {
   Truck,
 } from "lucide-react";
 
-import heroImage from "@assets/stock_images/industrial_metal_man_71cbfaed.jpg";
+import heroImage from "@assets/Serge_Cantin_1764620776743.webp";
 
 const services = [
   {

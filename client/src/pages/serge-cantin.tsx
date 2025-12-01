@@ -11,6 +11,8 @@ import {
   User,
 } from "lucide-react";
 
+import heroImage from "@assets/stock_images/professional_busines_e7beae86.jpg";
+
 const responsibilities = [
   {
     icon: FileText,
@@ -53,6 +55,7 @@ export default function SergeCantin() {
       <Hero
         subtitle="About Us"
         title="Serge Cantin"
+        backgroundImage={heroImage}
         description="Over 30 years of dedication to quality craftsmanship and customer satisfaction in the store fixture industry."
         size="medium"
       />

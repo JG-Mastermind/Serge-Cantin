@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Building2, Store, Globe, ZoomIn, Images } from "lucide-react";
 import { ImageLightbox, type GalleryImage } from "@/components/image-lightbox";
 
+import heroImage from "@assets/stock_images/professional_portfol_6ce76fe7.jpg";
 import industrialImg1 from "@assets/stock_images/industrial_metal_man_71cbfaed.jpg";
 import industrialImg2 from "@assets/stock_images/industrial_metal_man_ba4b1f36.jpg";
 import industrialImg3 from "@assets/stock_images/industrial_metal_man_afa34802.jpg";
@@ -271,6 +272,7 @@ export default function Realisations() {
         title="Realisations"
         description="We have been involved in a variety of projects in Canada, USA, South America, Egypt, Singapore, Thailand, and the Middle East."
         size="medium"
+        backgroundImage={heroImage}
       />
 
       <section className="py-16 lg:py-24">

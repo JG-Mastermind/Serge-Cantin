@@ -12,6 +12,8 @@ import {
   MoreHorizontal,
 } from "lucide-react";
 
+import heroImage from "@assets/stock_images/commercial_retail_st_3e024880.jpg";
+
 const productCategories = [
   {
     icon: Layers,
