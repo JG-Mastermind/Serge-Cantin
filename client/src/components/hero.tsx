@@ -41,7 +41,7 @@ export function Hero({
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${backgroundImage})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/10 to-background/30" />
         </>
       )}
 
