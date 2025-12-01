@@ -15,6 +15,8 @@ import {
   Truck,
 } from "lucide-react";
 
+import heroImage from "@assets/stock_images/industrial_metal_man_71cbfaed.jpg";
+
 const services = [
   {
     icon: Factory,
@@ -63,6 +65,7 @@ export default function HomePage() {
         ctaText="View Our Work"
         ctaLink="/real_e.html"
         size="large"
+        backgroundImage={heroImage}
       />
 
       <section className="py-16 lg:py-24 bg-card">
@@ -75,25 +78,32 @@ export default function HomePage() {
               Complete Manufacturing Solutions
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We supply metal products to general contractors, millwork companies, and retailers worldwide.
+              From initial design to final delivery, we provide comprehensive
+              solutions for your custom metal fixture needs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {services.map((service) => (
               <Card
                 key={service.title}
-                className="border bg-background hover-elevate transition-all duration-300"
+                className="border hover-elevate transition-all duration-300"
                 data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <service.icon className="h-6 w-6 text-primary" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <service.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-semibold text-lg mb-2">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -103,120 +113,118 @@ export default function HomePage() {
 
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="text-center mb-12 lg:mb-16">
+            <p className="text-sm font-medium uppercase tracking-widest text-primary mb-3">
+              Why Choose Us
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Industry Leadership
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              With over 30 years of experience, we've built a reputation for
+              excellence and innovation in metal fixture manufacturing.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             <div>
-              <p className="text-sm font-medium uppercase tracking-widest text-primary mb-3">
-                About Us
-              </p>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Built on Commitment to Our Customers
-              </h2>
+              <h3 className="text-2xl font-bold mb-6">
+                About Serge Cantin Manufacturing
+              </h3>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Since 1994, Serge Cantin has been providing exceptional custom metal store fixtures 
-                  to clients worldwide. Our dedication to quality, precision, and customer satisfaction 
-                  has made us a trusted partner for retailers, contractors, and millwork companies.
+                  Founded in 1994, Serge Cantin has established itself as a
+                  premier manufacturer of custom metal store fixtures for retail
+                  environments across North America and internationally.
                 </p>
                 <p>
-                  We have established successful relationships with designers, architects, millworkers, 
-                  contractors, and retailers from all over the world. Our collaborative approach 
-                  ensures your project is completed on time and to specification.
+                  Our 20,000 square foot manufacturing facility in Montreal is
+                  equipped with state-of-the-art machinery and staffed by
+                  skilled craftspeople who take pride in their work.
+                </p>
+                <p>
+                  We serve as partners to designers, architects, contractors,
+                  and retailers, providing solutions that combine functionality
+                  with aesthetic excellence.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-4 mt-8">
-                <Link href="/sc_e.html">
-                  <Button className="gap-2" data-testid="button-learn-more">
-                    Learn More
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link href="/contact_e.html">
-                  <Button variant="outline" data-testid="button-contact-us">
-                    Contact Us
-                  </Button>
-                </Link>
-              </div>
+              <Link href="/sc_e.html">
+                <Button className="mt-8 gap-2" data-testid="button-learn-more">
+                  Learn More About Us
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat) => (
-                <Card
-                  key={stat.label}
-                  className="border bg-card text-center"
-                  data-testid={`card-stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  <CardContent className="p-6">
-                    <p className="text-3xl lg:text-4xl font-bold text-primary mb-1">
-                      {stat.value}
-                    </p>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
-                  </CardContent>
-                </Card>
-              ))}
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Our Capabilities</h3>
+              <div className="grid gap-4">
+                {[
+                  "Design & Engineering Support",
+                  "CNC Machining & Fabrication",
+                  "Welding & Assembly",
+                  "Finishing & Quality Control",
+                  "Large Volume Production",
+                  "Worldwide Logistics",
+                  "Custom Hardware Solutions",
+                  "Professional Project Management",
+                ].map((capability) => (
+                  <div
+                    key={capability}
+                    className="flex items-center gap-3"
+                    data-testid={`capability-${capability.toLowerCase().replace(/\s+/g, "-")}`}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span className="text-foreground">{capability}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 lg:py-24 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-primary-foreground/10 flex items-center justify-center flex-shrink-0">
-                <Globe2 className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2">Global Reach</h3>
-                <p className="text-primary-foreground/80 text-sm">
-                  Projects completed across Canada, USA, South America, Egypt, Singapore, Thailand, and the Middle East.
+          <div className="text-center mb-12 lg:mb-16">
+            <p className="text-sm font-medium uppercase tracking-widest text-primary mb-3">
+              By The Numbers
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Our Track Record
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}
+              >
+                <p className="text-4xl lg:text-5xl font-bold text-primary mb-2">
+                  {stat.value}
                 </p>
+                <p className="text-muted-foreground font-medium">{stat.label}</p>
               </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-primary-foreground/10 flex items-center justify-center flex-shrink-0">
-                <Users className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2">Expert Team</h3>
-                <p className="text-primary-foreground/80 text-sm">
-                  30+ skilled employees working in a flexible production line across six specialized departments.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-primary-foreground/10 flex items-center justify-center flex-shrink-0">
-                <Award className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2">Quality Assured</h3>
-                <p className="text-primary-foreground/80 text-sm">
-                  Personal involvement in every project from quotation to delivery ensures consistent quality.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Contact us today to discuss your custom metal fixture requirements. 
-            We're here to bring your vision to life.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+              Contact us today to discuss your custom metal fixture requirements.
+              Our team is ready to bring your vision to life.
+            </p>
             <Link href="/contact_e.html">
-              <Button size="lg" className="gap-2" data-testid="button-cta-contact">
+              <Button size="lg" className="gap-2" data-testid="button-contact-cta">
                 Get in Touch
                 <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link href="/real_e.html">
-              <Button variant="outline" size="lg" data-testid="button-cta-portfolio">
-                View Portfolio
               </Button>
             </Link>
           </div>
