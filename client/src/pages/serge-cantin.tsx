@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 import heroImage from "@assets/workshop-hero.webp";
+import founderImage from "@assets/serge-founder.webp";
 
 const servicesOverview = [
   {
@@ -50,8 +51,8 @@ export default function SergeCantin() {
 
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-            <div className="lg:col-span-3">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   I have been in the store fixture industry since 1985. In 1994, I opened my own 
@@ -69,24 +70,7 @@ export default function SergeCantin() {
                 </p>
               </div>
 
-              <div className="mt-12 p-6 bg-card rounded-lg border">
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <User className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-xl mb-1">Serge Cantin</h3>
-                    <p className="text-primary font-medium mb-2">President & Founder</p>
-                    <p className="text-sm text-muted-foreground">
-                      Leading our team since 1994 with a commitment to quality and customer satisfaction.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-2">
-              <div className="bg-card rounded-lg border p-8">
+              <div className="mt-12 bg-card rounded-lg border p-8">
                 <h3 className="text-2xl font-bold mb-8">Our Approach</h3>
                 <div className="space-y-6">
                   {servicesOverview.map((service) => (
@@ -104,6 +88,24 @@ export default function SergeCantin() {
                   ))}
                 </div>
               </div>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <img 
+                src={founderImage} 
+                alt="Serge Cantin, President & Founder"
+                className="w-full max-w-md rounded-lg shadow-lg mb-6 object-cover"
+                data-testid="img-founder-serge"
+              />
+              <Card className="border w-full bg-card">
+                <CardContent className="p-8 text-center">
+                  <h3 className="text-2xl font-bold mb-2">Serge Cantin</h3>
+                  <p className="text-lg text-primary font-semibold mb-4">President & Founder</p>
+                  <p className="text-muted-foreground">
+                    Leading our team since 1994 with a commitment to quality and customer satisfaction. Over 30 years of industry experience dedicated to excellence in custom metal fabrication.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
