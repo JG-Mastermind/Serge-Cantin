@@ -10,9 +10,6 @@ export default {
         md: ".375rem", /* 6px */
         sm: ".1875rem", /* 3px */
       },
-      fontFamily: {
-        display: ['Oswald', 'system-ui', 'sans-serif'],
-      },
       colors: {
         // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
@@ -97,6 +94,7 @@ export default {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
+        display: ['Oswald', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
