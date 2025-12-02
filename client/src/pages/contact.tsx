@@ -89,15 +89,17 @@ export default function Contact() {
 
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="mb-12">
+            <p className="text-sm font-medium uppercase tracking-widest text-primary mb-3">
+              Contact Information
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-bold">
+              Let's Connect
+            </h2>
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
-              <p className="text-sm font-medium uppercase tracking-widest text-primary mb-3">
-                Contact Information
-              </p>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-8">
-                Let's Connect
-              </h2>
-
               <div className="space-y-6">
                 <Card className="border" data-testid="card-contact-address">
                   <CardContent className="p-6">
