@@ -120,6 +120,7 @@ export default function Stands() {
         title="Stands & Exhibition"
         description="Store fixtures and typical accessories. We have a design and build team ready for your customized trade show and store fixtures."
         size="large"
+        backgroundImage={heroImage}
       />
 
       <section className="py-16 lg:py-24">
