@@ -30,7 +30,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
-import heroImage from "@assets/stock_images/customer_service_con_32fc4fec.jpg";
+import heroImage from "@assets/contact-hero.webp";
 
 export default function Contact() {
   const { toast } = useToast();
