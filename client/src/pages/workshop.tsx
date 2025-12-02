@@ -12,7 +12,7 @@ import {
   Factory,
 } from "lucide-react";
 
-import heroImage from "@assets/bleizevibes_image (48)_1764637894933.webp";
+import heroImage from "@assets/workshop-hero.webp";
 
 const departments = [
   {
