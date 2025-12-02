@@ -271,7 +271,7 @@ export default function Realisations() {
         subtitle="Our Portfolio"
         title="Realisations"
         description="We have been involved in a variety of projects in Canada, USA, South America, Egypt, Singapore, Thailand, and the Middle East."
-        size="medium"
+        size="large"
         backgroundImage={heroImage}
       />
 
