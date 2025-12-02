@@ -9,7 +9,7 @@ import {
   User,
 } from "lucide-react";
 
-import heroImage from "@assets/stock_images/manufacturing_workshop_fe1f69b0.jpg";
+import heroImage from "@assets/workshop-hero.webp";
 
 const servicesOverview = [
   {
