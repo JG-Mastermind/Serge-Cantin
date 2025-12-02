@@ -83,7 +83,7 @@ export default function Contact() {
         subtitle="Get in Touch"
         title="Contact Us"
         description="We built our company on commitment to our customers. Reach out to discuss your custom metal fixture requirements."
-        size="small"
+        size="large"
         backgroundImage={heroImage}
       />
 

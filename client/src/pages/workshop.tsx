@@ -69,7 +69,7 @@ export default function Workshop() {
         subtitle="Our Facility"
         title="Our Workshop"
         description="Mr. Serge Cantin is proud to present our 20,000 square foot manufacturing plant, consisting of six production departments and 30+ skilled employees."
-        size="medium"
+        size="large"
         backgroundImage={heroImage}
       />
 

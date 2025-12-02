@@ -50,7 +50,7 @@ export default function Blog() {
         subtitle="News & Insights"
         title="Blog"
         description="Stay updated with the latest news, industry insights, and articles from our team."
-        size="small"
+        size="large"
         backgroundImage={heroImage}
       />
 

@@ -20,13 +20,13 @@ export function Hero({
   showCta = false,
   ctaText = "Learn More",
   ctaLink = "/real_e.html",
-  size = "medium",
+  size = "large",
   backgroundImage,
 }: HeroProps) {
   const heightClass = {
     large: "min-h-[70vh]",
-    medium: "min-h-[50vh]",
-    small: "min-h-[35vh]",
+    medium: "min-h-[70vh]",
+    small: "min-h-[70vh]",
   }[size];
 
   return (
@@ -41,7 +41,7 @@ export function Hero({
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${backgroundImage})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/10 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50" />
         </>
       )}
 
@@ -68,15 +68,15 @@ export function Hero({
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 lg:px-8 text-center py-16">
         {subtitle && (
-          <p className="text-sm font-medium uppercase tracking-widest text-primary mb-4">
+          <p className="text-sm font-medium uppercase tracking-widest text-white/90 mb-4 drop-shadow-lg">
             {subtitle}
           </p>
         )}
-        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
           {title}
         </h1>
         {description && (
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg lg:text-xl text-white/80 max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md">
             {description}
           </p>
         )}
