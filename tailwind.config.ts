@@ -10,6 +10,9 @@ export default {
         md: ".375rem", /* 6px */
         sm: ".1875rem", /* 3px */
       },
+      fontFamily: {
+        display: ['Oswald', 'system-ui', 'sans-serif'],
+      },
       colors: {
         // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
@@ -80,6 +83,14 @@ export default {
           away: "rgb(245 158 11)",
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
+        },
+        industrial: {
+          orange: '#ea580c',
+          orangeHover: '#c2410c',
+          dark: '#0f172a',
+          darker: '#020617',
+          concrete: '#e2e8f0',
+          steel: '#94a3b8',
         },
       },
       fontFamily: {

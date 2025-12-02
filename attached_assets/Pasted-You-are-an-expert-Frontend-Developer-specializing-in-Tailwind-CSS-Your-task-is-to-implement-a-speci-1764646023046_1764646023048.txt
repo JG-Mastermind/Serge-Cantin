@@ -1,0 +1,122 @@
+You are an expert Frontend Developer specializing in Tailwind CSS. Your task is to implement a specific "Raw Industrial" design system for a website.
+
+Design System Overview: "Raw Industrial"
+
+The aesthetic is heavy, durable, and manufacturing-focused. It uses a base of cool greys (Concrete/Steel), strong contrasts with dark navy/black (Oil/Iron), and a high-visibility "Safety Orange" for accents.
+
+1. Tailwind Configuration (tailwind.config.js)
+
+Please extend the Tailwind theme with these specific colors to ensure consistency.
+
+module.exports = {
+  darkMode: 'class', // Enable class-based dark mode
+  theme: {
+    extend: {
+      colors: {
+        // The Industrial Palette
+        industrial: {
+          orange: '#ea580c',      // Safety Orange (Primary Accent)
+          orangeHover: '#c2410c', // Darker Orange (Hover State)
+          dark: '#0f172a',        // Deep Navy/Iron (Dark Mode Base)
+          darker: '#020617',      // Almost Black (Dark Mode Background)
+          concrete: '#e2e8f0',    // Light Grey (Light Mode Surface)
+          steel: '#94a3b8',       // Mid-Grey (Borders/Icons)
+        }
+      },
+      fontFamily: {
+        // Headers: Condensed, bold, industrial
+        sans: ['Roboto', 'sans-serif'],
+        display: ['Oswald', 'sans-serif'], 
+      }
+    }
+  }
+}
+
+
+2. Global Theme Rules (Light vs. Dark)
+
+Page Backgrounds
+
+Light Mode: bg-slate-50 or bg-[#f8fafc]. Use bg-slate-200 (Concrete) for hero sections or alternating bands.
+
+Dark Mode: dark:bg-slate-950 (Deepest Navy/Black). Use dark:bg-slate-900 for hero sections or alternating bands.
+
+Typography & Text
+
+Headers (H1-H6): Font-family Oswald (or similar condensed sans). Uppercase.
+
+Light: text-slate-900
+
+Dark: text-white
+
+Body Text: Font-family Roboto (or standard sans).
+
+Light: text-slate-700 (High readability charcoal)
+
+Dark: text-slate-300 (Softened white for eye comfort)
+
+3. Component Specifications
+
+A. Navigation Bar (Sticky Top)
+
+Appearance: Always heavy and dark to anchor the page, even in Light Mode.
+
+Background: bg-slate-900 (Light Mode) / dark:bg-slate-950 (Dark Mode).
+
+Border: Bottom border border-b-4 border-industrial-orange.
+
+Links: text-slate-300 hover text-white.
+
+B. Buttons (The "Industrial" Look)
+
+Primary Action (CTA):
+
+Background: bg-industrial-orange (#ea580c)
+
+Hover: hover:bg-industrial-orangeHover (#c2410c)
+
+Text: White, Uppercase, Bold.
+
+Shape: Crucial Detail: Use a clip-path polygon for angled "cut" corners (stamped metal look), NOT rounded corners.
+
+CSS: clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+
+Secondary Action (Ghost/Outline):
+
+Border: 2px solid. border-slate-900 (Light) / border-slate-400 (Dark).
+
+Text: text-slate-900 (Light) / text-slate-200 (Dark).
+
+Hover: Invert colors (Fill with Slate-900/White text).
+
+C. Cards & Content Blocks
+
+Light Mode:
+
+Background: bg-slate-50 or White.
+
+Border: border border-slate-200.
+
+Dark Mode:
+
+Background: dark:bg-slate-900.
+
+Border: dark:border-slate-800.
+
+Hover Effect: hover:shadow-xl hover:border-industrial-orange (The orange border glow on hover is key).
+
+D. Footer
+
+Background: bg-slate-950 (Black/Iron).
+
+Text: text-slate-500 (Muted industrial markings).
+
+Headers: text-white Uppercase.
+
+4. Implementation Instructions
+
+Apply transition-colors duration-300 to the body and main containers for smooth Light/Dark switching.
+
+Use Lucide-react or similar icons. Icon colors should generally be text-slate-700 (Light) or text-slate-400 (Dark), except for key icons which should be text-industrial-orange.
+
+Do not use rounded-xl or rounded-2xl. Keep radiuses small (rounded-sm) or sharp to maintain the "machined" aesthetic.
