@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Building2, Store, Globe, ZoomIn, Images } from "lucide-react";
 import { ImageLightbox, type GalleryImage } from "@/components/image-lightbox";
 
-import heroImage from "@assets/stock_images/professional_portfol_6ce76fe7.jpg";
+import heroImage from "@assets/realisations-hero.webp";
 import industrialImg1 from "@assets/stock_images/industrial_metal_man_71cbfaed.jpg";
 import industrialImg2 from "@assets/stock_images/industrial_metal_man_ba4b1f36.jpg";
 import industrialImg3 from "@assets/stock_images/industrial_metal_man_afa34802.jpg";
