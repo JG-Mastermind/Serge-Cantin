@@ -15,12 +15,12 @@ localPort = 5000
 externalPort = 80
 
 [[ports]]
-localPort = 41481
-externalPort = 3001
+localPort = 36345
+externalPort = 3000
 
 [[ports]]
-localPort = 45177
-externalPort = 3000
+localPort = 41481
+externalPort = 3001
 
 [env]
 PORT = "5000"
