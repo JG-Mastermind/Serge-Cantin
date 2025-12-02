@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Rss, ArrowLeft, Clock, BookOpen, Newspaper } from "lucide-react";
 
+import heroImage from "@assets/stock_images/blog_article_writing_693ba7a6.jpg";
+
 const placeholderPosts = [
   {
     title: "The Art of Custom Metal Fabrication",
@@ -49,6 +51,7 @@ export default function Blog() {
         title="Blog"
         description="Stay updated with the latest news, industry insights, and articles from our team."
         size="small"
+        backgroundImage={heroImage}
       />
 
       <section className="py-16 lg:py-24">

@@ -12,6 +12,8 @@ import {
   Factory,
 } from "lucide-react";
 
+import heroImage from "@assets/bleizevibes_image (48)_1764637894933.webp";
+
 const departments = [
   {
     icon: Scissors,
@@ -68,6 +70,7 @@ export default function Workshop() {
         title="Our Workshop"
         description="Mr. Serge Cantin is proud to present our 20,000 square foot manufacturing plant, consisting of six production departments and 30+ skilled employees."
         size="medium"
+        backgroundImage={heroImage}
       />
 
       <section className="py-16 lg:py-24">

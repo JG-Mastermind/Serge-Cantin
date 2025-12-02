@@ -30,6 +30,8 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
+import heroImage from "@assets/stock_images/customer_service_con_32fc4fec.jpg";
+
 export default function Contact() {
   const { toast } = useToast();
   const [submitted, setSubmitted] = useState(false);
@@ -82,6 +84,7 @@ export default function Contact() {
         title="Contact Us"
         description="We built our company on commitment to our customers. Reach out to discuss your custom metal fixture requirements."
         size="small"
+        backgroundImage={heroImage}
       />
 
       <section className="py-16 lg:py-24">
