@@ -60,7 +60,7 @@ export default function HomePage() {
       description="Serge Cantin is a leading manufacturer of custom metal store fixtures based in Montreal, Quebec, Canada. Quality craftsmanship since 1994."
     >
       <Hero
-        subtitle="Custom Metal Store Fixtures"
+        subtitle="Custom Metal Store & Exhibit Fixtures"
         title="Precision Manufacturing for Retail Excellence"
         description="We are a manufacturer of custom metal store fixtures based in Montreal, Quebec, Canada. Our 20,000 square foot plant has all the equipment and resources to produce anything from a single prototype to complete store fixture packages."
         showCta

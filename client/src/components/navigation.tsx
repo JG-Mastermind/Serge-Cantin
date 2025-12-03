@@ -76,7 +76,7 @@ export function Navigation() {
             <div className="flex flex-col">
               <span className="font-semibold text-lg leading-tight">Serge Cantin</span>
               <span className="text-xs text-muted-foreground leading-tight hidden sm:block">
-                Custom Metal Store Fixtures
+                Gestion de Projets & 3D design
               </span>
             </div>
           </Link>
