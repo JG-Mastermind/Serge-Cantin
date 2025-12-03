@@ -15,7 +15,8 @@ import {
   Truck,
 } from "lucide-react";
 
-import heroImage from "@assets/Serge_Cantin_1764620776743.webp";
+import heroImage1 from "@assets/hero-lathe-workshop.webp";
+import heroImage2 from "@assets/hero-durma-shear.webp";
 
 const services = [
   {
@@ -65,7 +66,8 @@ export default function HomePage() {
         ctaText="View Our Work"
         ctaLink="/real_e.html"
         size="large"
-        backgroundImage={heroImage}
+        backgroundImages={[heroImage1, heroImage2]}
+        sliderInterval={2500}
       />
 
       <section className="py-16 lg:py-24 bg-card">

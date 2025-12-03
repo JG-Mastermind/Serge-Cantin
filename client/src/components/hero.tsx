@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface HeroProps {
   title: string;
@@ -11,6 +12,8 @@ interface HeroProps {
   ctaLink?: string;
   size?: "large" | "medium" | "small";
   backgroundImage?: string;
+  backgroundImages?: string[];
+  sliderInterval?: number;
 }
 
 export function Hero({
@@ -22,7 +25,22 @@ export function Hero({
   ctaLink = "/real_e.html",
   size = "large",
   backgroundImage,
+  backgroundImages,
+  sliderInterval = 2500,
 }: HeroProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = backgroundImages || (backgroundImage ? [backgroundImage] : []);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex: number) => (prevIndex + 1) % images.length);
+    }, sliderInterval);
+
+    return () => clearInterval(interval);
+  }, [images.length, sliderInterval]);
+
   const heightClass = {
     large: "min-h-[70vh]",
     medium: "min-h-[70vh]",
@@ -34,13 +52,18 @@ export function Hero({
       className={`relative ${heightClass} flex items-center justify-center overflow-hidden`}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
-      
-      {backgroundImage && (
+
+      {images.length > 0 && (
         <>
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${backgroundImage})` }}
-          />
+          {images.map((image, index) => (
+            <div
+              key={image}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                index === currentImageIndex ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ backgroundImage: `url(${image})` }}
+            />
+          ))}
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50" />
         </>
       )}
