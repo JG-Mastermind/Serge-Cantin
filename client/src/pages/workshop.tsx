@@ -12,7 +12,10 @@ import {
   Factory,
 } from "lucide-react";
 
-import heroImage from "@assets/workshop-hero.webp";
+import heroImage1 from "@assets/workshop-hero.webp";
+import heroImage2 from "@assets/workshop-hero-2.webp";
+import heroImage3 from "@assets/workshop-hero-3.webp";
+import heroImage4 from "@assets/workshop-hero-4.webp";
 
 const departments = [
   {
@@ -70,7 +73,8 @@ export default function Workshop() {
         title="Our Workshop"
         description="Mr. Serge Cantin is proud to present our 20,000 square foot manufacturing plant, consisting of six production departments and 30+ skilled employees."
         size="large"
-        backgroundImage={heroImage}
+        backgroundImages={[heroImage1, heroImage2, heroImage3, heroImage4]}
+        sliderInterval={2500}
       />
 
       <section className="py-16 lg:py-24">
