@@ -15,8 +15,9 @@ import {
   Truck,
 } from "lucide-react";
 
-import heroImage1 from "@assets/hero-lathe-workshop.webp";
-import heroImage2 from "@assets/hero-durma-shear.webp";
+import heroImage1 from "@assets/hero-metal-fabrication.webp";
+import heroImage2 from "@assets/hero-lathe-workshop.webp";
+import heroImage3 from "@assets/hero-durma-shear.webp";
 
 const services = [
   {
@@ -66,7 +67,7 @@ export default function HomePage() {
         ctaText="View Our Work"
         ctaLink="/real_e.html"
         size="large"
-        backgroundImages={[heroImage1, heroImage2]}
+        backgroundImages={[heroImage1, heroImage2, heroImage3]}
         sliderInterval={2500}
       />
 
